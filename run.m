@@ -21,7 +21,7 @@ n = 100; % Number of nodes
 sn = 3; % Number of mobile sink
 sn_method = 'random'; % the mobile sink can be either selected randomly 'random' or evenly spaceed 'even'.
 
-rounds = 3000; % Number of rounds per simulation
+rounds = 4000; % Number of rounds per simulation
 k = 800; % Bits transmitted per packet
 
 % Clustering Paramters
