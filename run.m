@@ -25,7 +25,7 @@ rounds = 100; % Number of rounds per simulation
 k = 80000; % Bits transmitted per packet
 
 % Clustering Paramters
-n_clusters = 8;
+n_clusters = 5;
 
 % Mobility Parameters
 min_dist = 0; % Minimum mobility for sensor nodes (in m)

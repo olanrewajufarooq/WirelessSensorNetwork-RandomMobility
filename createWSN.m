@@ -58,7 +58,7 @@ for i=1:nodes
     SN.n(i).rop = 0;	% number of rounds node was operational
     
     SN.n(i).col = "#FF0000"; % node color when plotting
-    SN.n(i).size = 12; % marker size when plotting
+    SN.n(i).size = 20; % marker size when plotting
     SN.n(i).alpha = 0.01*(10^4).^(SN.n(i).E); % the opacity when plotting
     
     SN.n(i).Xs = zeros(1, rounds); % All positional values through the simulation
@@ -112,7 +112,7 @@ for i=1:sink_nodes
     SN.n(I).cluster = NaN;	% the cluster which a node belongs to
     
     SN.n(I).col = "#000000"; % node color when plotting
-    SN.n(I).size = 24; % marker size when plotting
+    SN.n(I).size = 30; % marker size when plotting
     SN.n(i).alpha = 1; % the opacity when plotting
     
     ms_ids(1, i) = j;

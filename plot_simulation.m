@@ -25,7 +25,7 @@ hold off
 for round = 1:rounds
     set(round_val_text, 'String', cat(2,'Round = ', num2str(round)));
     for i = 1:length(SN.n)
-        set(node_plot(i), {'XData', 'YData', 'MarkerFaceColor', 'MarkerFaceAlpha'}, {SN.n(i).Xs(round), SN.n(i).Ys(round), SN.n(i).COLs(1), SN.n(i).ALPHAs(1)});
+        y = set(node_plot(i), {'XData', 'YData', 'MarkerFaceColor', 'MarkerFaceAlpha' }, {SN.n(i).Xs(round), SN.n(i).Ys(round), SN.n(i).COLs(round), SN.n(i).ALPHAs(round)});
     end
     drawnow;
 end
