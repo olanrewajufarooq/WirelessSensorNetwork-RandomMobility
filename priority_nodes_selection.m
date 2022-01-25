@@ -26,7 +26,7 @@ for cluster = unique([SN.n.cluster])
         if j_shape(1) > 0
             pn_id = node_ids(J);
             SN.n(pn_id).role = 'P';
-            SN.n(i).col = "#0000FF"; % node color when plotting
+            SN.n(i).col = "b"; % node color when plotting
             pn_ids(cluster) = pn_id;
 
             for i=1:length(SN.n)
