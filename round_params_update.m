@@ -58,7 +58,7 @@ for i = 1:length(SN.n)
     SN.n(i).Xs(round) = SN.n(i).x;
     SN.n(i).Ys(round) = SN.n(i).y;
     SN.n(i).ALPHAs(round) = SN.n(i).alpha;
-    SN.n(i).COLs(round) = SN.n(i).col;
+    SN.n(i).COLs(round, :) = SN.n(i).col;
     
     % Update new node positions
     if (strcmp(SN.n(i).role, 'N') || strcmp(SN.n(i).role, 'P')) && strcmp(SN.n(i).cond, 'A')

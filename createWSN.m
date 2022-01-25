@@ -58,7 +58,7 @@ for i=1:nodes
     SN.n(i).cond = 'A';	% States the current condition of the node. when the node is operational (i.e. alive) its value = 'A' and when dead, value = 'D'
     SN.n(i).rop = 0;	% number of rounds node was operational
     
-    SN.n(i).col = 'r'; % node color when plotting
+    SN.n(i).col = "r"; % node color when plotting
     SN.n(i).size = 1; % marker size when plotting
     SN.n(i).alpha = 0.01*(50^4).^(SN.n(i).E); % the opacity when plotting
     
@@ -114,7 +114,7 @@ for i=1:sink_nodes
     SN.n(I).role = 'S';   % node acts as normal if the value is 'N', if elected as a priority node it  gets the value 'P' (initially all nodes are normal). Nodes can also be designed as sink => 'S'
     SN.n(I).cluster = NaN;	% the cluster which a node belongs to
     
-    SN.n(I).col = 'b'; % node color when plotting
+    SN.n(I).col = [0,0,0]; % node color when plotting
     SN.n(I).size = 2; % marker size when plotting
     SN.n(i).alpha = 1; % the opacity when plotting
     

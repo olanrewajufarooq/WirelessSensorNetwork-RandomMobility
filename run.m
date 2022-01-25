@@ -21,8 +21,8 @@ n = 100; % Number of nodes
 sn = 3; % Number of mobile sink
 sn_method = 'random'; % the mobile sink can be either selected randomly 'random' or evenly spaceed 'even'.
 
-rounds = 1000; % Number of rounds per simulation
-k = 8000; % Bits transmitted per packet
+rounds = 100; % Number of rounds per simulation
+k = 80000; % Bits transmitted per packet
 
 % Clustering Paramters
 n_clusters = 8;
@@ -45,7 +45,7 @@ mob_params = containers.Map({'min_dist', 'max_dist', 'sn_min_dist', 'sn_max_dist
 [SN, round_params, sim_params] = simulation_rounds(rounds, SN, dims, ener, k, ms_ids, n_clusters, mob_params);
 
 %% Data Visualisation Conclusion
-plot_simulation(SN, rounds)
+plot_simulation(SN, rounds, dims)
 
 %% Lifetime and Stability Periods.
 

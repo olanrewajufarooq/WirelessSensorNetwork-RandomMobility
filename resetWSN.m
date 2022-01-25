@@ -28,7 +28,7 @@ for i=1:length(SN.n)
         SN.n(i).role = 'N';
         SN.n(i).dnp = 0;
         SN.n(i).pn_id = 0;
-        SN.n(i).col = 'r';
+        SN.n(i).col = [255, 0, 0];
         
     end
 end
