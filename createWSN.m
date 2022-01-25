@@ -40,7 +40,6 @@ end
 
 SN = struct();
 
- disp("..............\n")
 for i=1:nodes
         
     if seed ~= false
@@ -58,14 +57,13 @@ for i=1:nodes
     SN.n(i).cond = 'A';	% States the current condition of the node. when the node is operational (i.e. alive) its value = 'A' and when dead, value = 'D'
     SN.n(i).rop = 0;	% number of rounds node was operational
     
-    SN.n(i).col = "r"; % node color when plotting
-    SN.n(i).size = 1; % marker size when plotting
-    SN.n(i).alpha = 0.01*(50^4).^(SN.n(i).E); % the opacity when plotting
+    SN.n(i).col = "#FF0000"; % node color when plotting
+    SN.n(i).size = 12; % marker size when plotting
+    SN.n(i).alpha = 0.01*(10^4).^(SN.n(i).E); % the opacity when plotting
     
     SN.n(i).Xs = zeros(1, rounds); % All positional values through the simulation
     SN.n(i).Ys = zeros(1, rounds); % All positional values through the simulation
     SN.n(i).ALPHAs = zeros(1, rounds); % All corresponding energy values through the simulation
-    SN.n(i).COLs = []; % All node colors through the simulation
     
 end
 
@@ -73,7 +71,6 @@ end
 
 ms_ids = zeros(1, sink_nodes); % Initializing array of mobile sink IDs
 
-disp("..............\n")
 for i=1:sink_nodes
 
     if sink_nodes > 1 && strcmp(sink_nodes_method, 'random')
@@ -114,8 +111,8 @@ for i=1:sink_nodes
     SN.n(I).role = 'S';   % node acts as normal if the value is 'N', if elected as a priority node it  gets the value 'P' (initially all nodes are normal). Nodes can also be designed as sink => 'S'
     SN.n(I).cluster = NaN;	% the cluster which a node belongs to
     
-    SN.n(I).col = [0,0,0]; % node color when plotting
-    SN.n(I).size = 2; % marker size when plotting
+    SN.n(I).col = "#000000"; % node color when plotting
+    SN.n(I).size = 24; % marker size when plotting
     SN.n(i).alpha = 1; % the opacity when plotting
     
     ms_ids(1, i) = j;

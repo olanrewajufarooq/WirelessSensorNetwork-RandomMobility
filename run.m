@@ -4,8 +4,8 @@ clear;
 
 %% Simulation Details
 disp("Welcome to Wireless Sensor Simulation\n");
-disp("............................................................\n");
-disp("............................................................\n\n");
+disp("............................................................");
+disp("............................................................");
  
 % Initialization Inputs
 max_dimension = 100; % Maximum Dimension of the WSN Plot
@@ -28,11 +28,11 @@ k = 80000; % Bits transmitted per packet
 n_clusters = 8;
 
 % Mobility Parameters
-min_dist = 1; % Minimum mobility for sensor nodes (in m)
-max_dist = 3; % Maximum mobility for sensor nodes (in m)
-sn_min_dist = 2; % Minimum mobility for sink nodes (in m)
-sn_max_dist = 5; %Maximum mobility for sink nodes (in m)
-min_visit_dist = 1.5; % Minimum distance to affirm visitation by sink nodes (in m)
+min_dist = 0; % Minimum mobility for sensor nodes (in m)
+max_dist = 2; % Maximum mobility for sensor nodes (in m)
+sn_min_dist = 1; % Minimum mobility for sink nodes (in m)
+sn_max_dist = 4; %Maximum mobility for sink nodes (in m)
+min_visit_dist = 10; % Minimum distance to affirm visitation by sink nodes (in m)
 mob_params = containers.Map({'min_dist', 'max_dist', 'sn_min_dist', 'sn_max_dist', 'min_visit_dist'}, {min_dist, max_dist, sn_min_dist, sn_max_dist, min_visit_dist});
 
 %% Parameters Initialization

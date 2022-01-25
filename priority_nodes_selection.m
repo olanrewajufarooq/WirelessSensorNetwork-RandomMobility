@@ -19,14 +19,14 @@ for cluster = unique([SN.n.cluster])
     
     [n_visits, J]=max(visits(:)); % finds the maximum visits of node by MS
     
-    if n_visits ~= 0
+    if n_visits > 0
         % To detect is J returns sn empty array
         j_shape = size(J);
 
         if j_shape(1) > 0
             pn_id = node_ids(J);
             SN.n(pn_id).role = 'P';
-            SN.n(i).col = [0, 0, 255]; % node color when plotting
+            SN.n(i).col = "#0000FF"; % node color when plotting
             pn_ids(cluster) = pn_id;
 
             for i=1:length(SN.n)
