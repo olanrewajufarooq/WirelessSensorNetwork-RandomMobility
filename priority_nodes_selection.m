@@ -2,7 +2,7 @@ function [SN,  pn_ids] = priority_nodes_selection(SN)
 %PRIORITY_NODES_SELECTION Summary of this function goes here
 %   Detailed explanation goes here
 
-disp("..............")
+
 pn_ids = zeros( 1, length(unique([SN.n.cluster])) );
 
 for cluster = unique([SN.n.cluster])

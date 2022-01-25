@@ -36,8 +36,6 @@ function [SN, round_params, int_conn_start, int_conn_start_check] = energy_dissi
 %                   'packets', 'stability period', 'lifetime', 
 %                   'stability period round', 'lifetime round'.
 
-disp("..............")
-
 if int_conn_start_check
     int_conn_stop = toc;
     int_conn_time = int_conn_stop - int_conn_start;

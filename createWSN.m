@@ -18,10 +18,6 @@ function [SN, ms_ids] = createWSN(nodes, sink_nodes, sink_nodes_method, dims, en
 %   OUTPUT PARAMETERS
 %   SN - all sensors nodes (including routing routes)
 
-disp("Creating Wireless Sensor Network\n");
-disp("..............\n")
-
-
 %% Function Default Values
 
 if sink_nodes >= nodes
@@ -126,7 +122,5 @@ for i=1:sink_nodes
 
 end
 
-disp("Creating Wireless Sensor Network Completed\n");
-disp("..............\n\n")
 end
 

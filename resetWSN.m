@@ -21,7 +21,7 @@ function SN = resetWSN(SN)
 
 %% Building the sensor nodes of the WSN
 
-disp("..............")
+
 for i=1:length(SN.n)
     if strcmp(SN.n(i).role, 'N') || strcmp(SN.n(i).role, 'P')
         

@@ -30,7 +30,6 @@ function [SN, round_params, stability_period_check, lifetime_check] = round_para
 %   lifetime_check - boolean indication the active search of the lifetime
 %                       period metric.
 
-disp("..............")
 if stability_period_check
     if round_params('operating nodes') < length(SN.n) - length(ms_ids)
         round_params('stability period') = toc;

@@ -21,7 +21,6 @@ function [sim_params] = sim_params_update(round, round_params, sim_params)
 %                   They include: "dead nodes", "operating nodes", 
 %                   "total energy", "packets", "cluster heads".
 
-disp("..............\n")
 for i=["dead nodes", "operating nodes", "total energy", "packets", "contact time", "interconnect time"]
     x = sim_params(i);
     x(round) = round_params(i);

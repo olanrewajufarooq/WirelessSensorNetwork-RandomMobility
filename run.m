@@ -35,24 +35,6 @@ sn_max_dist = 5; %Maximum mobility for sink nodes (in m)
 min_visit_dist = 1.5; % Minimum distance to affirm visitation by sink nodes (in m)
 mob_params = containers.Map({'min_dist', 'max_dist', 'sn_min_dist', 'sn_max_dist', 'min_visit_dist'}, {min_dist, max_dist, sn_min_dist, sn_max_dist, min_visit_dist});
 
-%% Data Visualization Initialization
-%{
-visual = false; % For dynamic visualization
-final_visual = true;
-
-if visual
-    figure(1)
-    plot( dims('x_min'),dims('y_min'),dims('x_max'),dims('y_max') ); drawnow
-    
-    title ({'Mobile Sink'; 'Wireless Sensor Network';})
-    xlabel '(m)';
-    ylabel '(m)';
-    
-    hold on
-end
-
-%}
-
 %% Parameters Initialization
 [dims, ener] = param_init(max_dimension, initial_energy, transceiver_energy, ener_agg, ener_amp);
 
@@ -63,8 +45,7 @@ end
 [SN, round_params, sim_params] = simulation_rounds(rounds, SN, dims, ener, k, ms_ids, n_clusters, mob_params);
 
 %% Data Visualisation Conclusion
-
-plot_simulation()
+plot_simulation(SN, rounds)
 
 %% Lifetime and Stability Periods.
 
