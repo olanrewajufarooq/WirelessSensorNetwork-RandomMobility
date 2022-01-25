@@ -59,7 +59,7 @@ for i=1:nodes
     
     SN.n(i).col = "r"; % node color when plotting
     SN.n(i).size = 20; % marker size when plotting
-    SN.n(i).alpha = 0.04*(5^4).^(SN.n(i).E); % the opacity when plotting
+    SN.n(i).alpha = (4/25)*(2.5^4).^(SN.n(i).E); % the opacity when plotting
     
     SN.n(i).Xs = zeros(1, rounds); % All positional values through the simulation
     SN.n(i).Ys = zeros(1, rounds); % All positional values through the simulation

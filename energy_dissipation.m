@@ -58,7 +58,7 @@ for i = 1:length(SN.n)
             
             ETx = energy('tran')*k + energy('amp') * k * SN.n(i).dnp^2;
             SN.n(i).E = SN.n(i).E - ETx;
-            SN.n(i).alpha = 0.04*(5^4).^(SN.n(i).E);
+            SN.n(i).alpha = (4/25)*(2.5^4).^(SN.n(i).E);
             round_params('total energy') = round_params('total energy') + ETx;
 
             % Dissipation for priority node during reception
@@ -66,7 +66,7 @@ for i = 1:length(SN.n)
                 ERx = (energy('rec') + energy('agg'))*k;
                 round_params('total energy') = round_params('total energy') + ERx;
                 SN.n(SN.n(i).pn_id).E = SN.n(SN.n(i).pn_id).E - ERx;
-                SN.n(SN.n(i).pn_id).alpha = 0.04*(5^4).^(SN.n(SN.n(i).pn_id).E);
+                SN.n(SN.n(i).pn_id).alpha = (4/25)*(2.5^4).^(SN.n(SN.n(i).pn_id).E);
 
                 if SN.n(SN.n(i).pn_id).E<=0  % if priority node energy depletes with reception
                     SN.n(SN.n(i).pn_id).cond = 'D';
@@ -89,7 +89,7 @@ for i = 1:length(SN.n)
             
             ETx = energy('tran')*k + energy('amp') * k * dns^2;
             SN.n(i).E = SN.n(i).E - ETx;
-            SN.n(i).alpha = 0.04*(5^4).^(SN.n(i).E);
+            SN.n(i).alpha = (4/25)*(2.5^4).^(SN.n(i).E);
             round_params('total energy') = round_params('total energy') + ETx;
             
             % Energy Dissipation in Mobile Sink
@@ -131,7 +131,7 @@ if priority_node_selected
                     % Packet transfer to Mobile Sink
                     ETx = energy('tran')*k + energy('amp') * k * dpns^2;
                     SN.n(pn_id).E = SN.n(pn_id).E - ETx;
-                    SN.n(pn_id).alpha = 0.04*(5^4).^(SN.n(pn_id).E);
+                    SN.n(pn_id).alpha = (4/25)*(2.5^4).^(SN.n(pn_id).E);
                     round_params('total energy') = round_params('total energy') + ETx;
                     round_params('packets') = round_params('packets') + 1;
 
