@@ -6,6 +6,7 @@ clear;
 disp("Welcome to Wireless Sensor Simulation\n");
 disp("............................................................");
 disp("............................................................");
+pause(3)
  
 % Initialization Inputs
 max_dimension = 100; % Maximum Dimension of the WSN Plot
@@ -21,7 +22,7 @@ n = 100; % Number of nodes
 sn = 3; % Number of mobile sink
 sn_method = 'random'; % the mobile sink can be either selected randomly 'random' or evenly spaceed 'even'.
 
-rounds = 1000; % Number of rounds per simulation
+rounds = 3000; % Number of rounds per simulation
 k = 8000; % Bits transmitted per packet
 
 % Clustering Paramters
