@@ -21,8 +21,8 @@ n = 100; % Number of nodes
 sn = 3; % Number of mobile sink
 sn_method = 'random'; % the mobile sink can be either selected randomly 'random' or evenly spaceed 'even'.
 
-rounds = 100; % Number of rounds per simulation
-k = 80000; % Bits transmitted per packet
+rounds = 3000; % Number of rounds per simulation
+k = 800; % Bits transmitted per packet
 
 % Clustering Paramters
 n_clusters = 5;
@@ -44,9 +44,6 @@ mob_params = containers.Map({'min_dist', 'max_dist', 'sn_min_dist', 'sn_max_dist
 %% Smiluation of the WSN
 [SN, round_params, sim_params] = simulation_rounds(rounds, SN, dims, ener, k, ms_ids, n_clusters, mob_params);
 
-%% Data Visualisation Conclusion
-plot_simulation(SN, rounds, dims)
-
 %% Lifetime and Stability Periods.
 
 fprintf('\n\nSimulation Summary\n\n')
@@ -54,3 +51,9 @@ fprintf('Stability Period: %d secs\n', round(round_params('stability period'), 2
 fprintf('Stability Period Round: %d\n', round_params('stability period round'))
 fprintf('Lifetime: %d secs\n', round(round_params('lifetime'), 2))
 fprintf('Lifetime Round: %d\n', round_params('lifetime round'))
+
+%% Data Visualisation
+plot_data(rounds, sim_params)
+
+%% Mobility Visualization
+plot_simulation(SN, rounds, dims)

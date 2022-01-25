@@ -2,7 +2,7 @@ function plot_simulation(SN, rounds, dims)
 %PLOT_SIMULATION Summary of this function goes here
 %   Detailed explanation goes here
 
-figure(1);
+figure(2);
 hold on;
 
 xlabel('X (meters)');

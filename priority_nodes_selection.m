@@ -4,8 +4,9 @@ function [SN,  pn_ids] = priority_nodes_selection(SN)
 
 
 pn_ids = zeros( 1, length(unique([SN.n.cluster])) );
+clusters = unique([SN.n.cluster]);
 
-for cluster = unique([SN.n.cluster])
+for cluster = clusters(~isnan(clusters))
     
     node_ids = []; % Node ID
     visits = []; % A nodes shortest distance to a predicted path
@@ -26,7 +27,7 @@ for cluster = unique([SN.n.cluster])
         if j_shape(1) > 0
             pn_id = node_ids(J);
             SN.n(pn_id).role = 'P';
-            SN.n(i).col = "b"; % node color when plotting
+            SN.n(pn_id).col = "b"; % node color when plotting
             pn_ids(cluster) = pn_id;
 
             for i=1:length(SN.n)
