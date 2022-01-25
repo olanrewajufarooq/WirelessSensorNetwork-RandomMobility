@@ -29,6 +29,9 @@ function [SN, round_params, sim_params] = simulation_rounds(rounds, SN, dims, en
 %                   'packets', 'stability period', 'lifetime', 
 %                   'stability period round', 'lifetime round'.
 
+disp("..............")
+
+
 %% Initializations
 
 round_params = containers.Map( {'dead nodes', 'operating nodes', 'total energy', 'packets', 'stability period', 'lifetime', 'stability period round', 'lifetime round', 'contact time', 'interconnect time'}, {0, length(SN.n), 0, 0, 0, 0, 0, 0, 0, 0} );

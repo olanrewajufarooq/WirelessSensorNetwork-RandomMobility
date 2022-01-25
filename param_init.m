@@ -28,6 +28,9 @@ function [dims,ener] = param_init(max_dim, node_ener, ener_deduc, ener_agg, ener
 %           transceiver, amplification, aggregation. Outputs: init, tran,
 %           rec, amp, agg.
 
+disp("Parameters Initialization Begins");
+disp("...........")
+
 %% Function Default Values
 
 if nargin < 5
@@ -76,6 +79,9 @@ end
 energy = ener_deduc;
 
 ener = containers.Map( {'init', 'tran', 'rec', 'amp', 'agg'}, {node_ener, energy, energy, amp, agg} );
+
+disp("Parameters Initialization Ends");
+disp("...........")
 
 end
 

@@ -3,7 +3,10 @@ clc;
 clear;
 
 %% Simulation Details
-
+disp("Welcome to Wireless Sensor Simulation\n");
+disp("............................................................\n");
+disp("............................................................\n\n");
+ 
 % Initialization Inputs
 max_dimension = 100; % Maximum Dimension of the WSN Plot
 
@@ -61,7 +64,7 @@ end
 
 %% Data Visualisation Conclusion
 
-% plot_simulation
+plot_simulation()
 
 %% Lifetime and Stability Periods.
 

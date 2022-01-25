@@ -2,6 +2,7 @@ function [SN,  pn_ids] = priority_nodes_selection(SN)
 %PRIORITY_NODES_SELECTION Summary of this function goes here
 %   Detailed explanation goes here
 
+disp("..............")
 pn_ids = zeros( 1, length(unique([SN.n.cluster])) );
 
 for cluster = unique([SN.n.cluster])
@@ -16,7 +17,7 @@ for cluster = unique([SN.n.cluster])
         end 
     end
     
-    [n_visits, J]=max(visits(:)); % finds the minimum distance of node to MS
+    [n_visits, J]=max(visits(:)); % finds the maximum visits of node by MS
     
     if n_visits ~= 0
         % To detect is J returns sn empty array

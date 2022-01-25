@@ -30,6 +30,7 @@ function [SN, round_params, stability_period_check, lifetime_check] = round_para
 %   lifetime_check - boolean indication the active search of the lifetime
 %                       period metric.
 
+disp("..............")
 if stability_period_check
     if round_params('operating nodes') < length(SN.n) - length(ms_ids)
         round_params('stability period') = toc;
@@ -65,6 +66,8 @@ for i = 1:length(SN.n)
         dist_moved = mob_params('min_dist') + rand * (mob_params('max_dist') - mob_params('min_dist'));
     elseif strcmp(SN.n(i).role, 'S')
         dist_moved = mob_params('sn_min_dist') + rand * (mob_params('sn_max_dist') - mob_params('sn_min_dist'));
+    else
+        dist_moved =0;
     end
     
     direction_moved = -180 + rand * 360;
@@ -83,7 +86,7 @@ for i = 1:length(SN.n)
                 x_dest = dims('x_max');
                 y_dest = SN.n(i).y + diff([SN.n(i).x x_dest])*tand(direction_moved);  
             end
-            if x_dest > dims('x_min')
+            if x_dest < dims('x_min')
                 node_moved_out = true;
                 new_direction = 180 - direction_moved;
                 x_dest = dims('x_min');
@@ -95,7 +98,7 @@ for i = 1:length(SN.n)
                 y_dest = dims('y_max');
                 x_dest = SN.n(i).x + diff([SN.n(i).y y_dest])/tand(direction_moved); 
             end
-            if y_dest > dims('y_min')
+            if y_dest < dims('y_min')
                 node_moved_out = true;
                 new_direction = -direction_moved;
                 y_dest = dims('y_min');
@@ -114,26 +117,51 @@ for i = 1:length(SN.n)
     end
 end
 
-% Update the amount of visitation by the mobile sinks by clo
+% Update the amount of visitation by the mobile sinks by proximity to the
+% sink nodes
 ids_visited = [];
 for i = 1:length(SN.n)
     if (strcmp(SN.n(i).role, 'N') || strcmp(SN.n(i).role, 'P')) && strcmp(SN.n(i).cond, 'A')
         
-        dist_to_sinks = zeros(1, length(ms_ids);
+        dist_to_sinks = zeros(1, length(ms_ids));
         for j = 1:length(ms_ids)
-            dist_to_sinks(j) = sqrt( (SN.n(ms_ids(j)).x - SN.n(pn_id).x)^2 + (SN.n(ms_ids(j)).y - SN.n(pn_id).y)^2 );
+            dist_to_sinks(j) = sqrt( (SN.n(ms_ids(j)).x - SN.n(i).x)^2 + (SN.n(ms_ids(j)).y - SN.n(i).y)^2 );
         end
 
         dns = min(dist_to_sinks(:)); % Distance to closest mobile sink
         
         if dns <= mob_params('min_visit_dist')
-           SN.n(i).visits = SN.n(i).visits + 1;
+           SN.n(i).sn_visits = SN.n(i).sn_visits + 1;
            ids_visited(end+1) = i;
         end
     end
 end
 
-
+% Update the amount of visitation by the mobile sinks by clusters
+for cluster = unique([SN.n.cluster])
+    node_ids = []; % Node ID
+    min_dists_to_sinks = []; % A nodes shortest distance to a predicted path
+        
+    for i=1:length(SN.n)
+        if (strcmp(SN.n(i).role, 'N') || strcmp(SN.n(i).role, 'P')) && strcmp(SN.n(i).cond, 'A') && (SN.n(i).cluster == cluster) && (~isnan(cluster))
+            node_ids(end+1) = SN.n(i).id;
+            
+            dist_to_sinks = zeros(1, length(ms_ids));
+            for j = 1:length(ms_ids)
+                dist_to_sinks(j) = sqrt( (SN.n(i).x - SN.n(ms_ids(j)).x)^2 + (SN.n(i).y - SN.n(ms_ids(j)).y)^2 );
+            end
+            
+            min_dists_to_sinks(end+1) = min(dist_to_sinks(:));
+        end 
+    end
+    
+    [~, J] = max(min_dists_to_sinks(:)); % finds the maximum visits of node by MS
+    
+    node_id = node_ids(J);
+    if ~ismember(node_id, ids_visited)
+        SN.n(i).sn_visits = SN.n(i).sn_visits + 1;
+    end
+end
 
 end
 

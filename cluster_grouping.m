@@ -11,6 +11,8 @@ function SN = cluster_grouping(SN, n_clusters, dims)
 %   OUTPUT PARAMETERS
 %   SN - all sensors nodes (including routing routes)
 
+disp("..............")
+
 clust_angle = 2*pi/n_clusters;
 
 for i=1:length(SN.n)

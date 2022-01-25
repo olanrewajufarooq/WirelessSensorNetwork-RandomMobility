@@ -18,6 +18,10 @@ function [SN, ms_ids] = createWSN(nodes, sink_nodes, sink_nodes_method, dims, en
 %   OUTPUT PARAMETERS
 %   SN - all sensors nodes (including routing routes)
 
+disp("Creating Wireless Sensor Network\n");
+disp("..............\n")
+
+
 %% Function Default Values
 
 if sink_nodes >= nodes
@@ -40,6 +44,7 @@ end
 
 SN = struct();
 
+ disp("..............\n")
 for i=1:nodes
         
     if seed ~= false
@@ -72,7 +77,7 @@ end
 
 ms_ids = zeros(1, sink_nodes); % Initializing array of mobile sink IDs
 
-
+disp("..............\n")
 for i=1:sink_nodes
 
     if sink_nodes > 1 && strcmp(sink_nodes_method, 'random')
@@ -121,5 +126,7 @@ for i=1:sink_nodes
 
 end
 
+disp("Creating Wireless Sensor Network Completed\n");
+disp("..............\n\n")
 end
 
